@@ -1,0 +1,17 @@
+pytest
+
+bidict
+
+# itertools
+
+# antlr4-python3
+antlr4-python3-runtime==4.7.1
+
+StringBuilder
+
+untangle
+
+# we need `apt-get install python3-dev python-dev` for this
+# and for pyenv:
+# `env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.5.0`
+pyinstaller
