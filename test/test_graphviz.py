@@ -71,8 +71,13 @@ s12 [shape="none", label=<<table><tr><td>Event</td><td>*</td></tr><tr><td colspa
 
     with open('./temp/diagram/AChart.xstd.dot') as f:
         lines = f.readlines()
+    expected = expected.split(os.linesep)
+    expected = [e.strip() for e in expected]
+    lines = [l.strip() for l in lines]
+    for i in range(min(len(lines), len(expected))):
+        assert lines[i] == expected[i]
 
-    assert lines == expected
+    assert len(lines) == len(expected)
 
 
 def test_generateDiagrams(env: Env):

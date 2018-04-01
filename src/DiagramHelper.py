@@ -72,7 +72,7 @@ class DiagramHelper:
                 sb.append(action['name'])
                 sb.append("</td></tr>")
 
-        if hasattr(attr, 'guard') and hasattr(attr.guard, 'cdata'):
+        if hasattr(attr, 'guard') and hasattr(attr.guard, 'cdata') and attr.guard.cdata:
             guard = attr.guard.cdata.replace("&", "&amp;")
             sb.append("<tr><td>Guard</td><td><font color=\"red\">")
             sb.append(guard)
