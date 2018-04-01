@@ -1,4 +1,5 @@
 # -*- mode: python -*-
+import os
 
 block_cipher = None
 
@@ -6,7 +7,7 @@ a = Analysis(['src/main.py'],
              pathex=['/home/dima/work/verification_course/python'],
              binaries=[
                  # ('ltl2ba/ltl2ba', 'ltl2ba/ltl2ba')
-                 # , ('dot', 'dot')
+                 # , ('/usr/bin/dot', 'dot')
              ],
              datas=[],
              hiddenimports=[],
@@ -23,7 +24,7 @@ exe = EXE(pyz,
           a.binaries,
           a.zipfiles,
           a.datas,
-          name='verifier',
+          name='verifier' + ('.exe' if os.name == 'nt' else ''),
           debug=False,
           strip=False,
           upx=True,
