@@ -8,6 +8,7 @@ import bidict
 
 import itertools
 
+import sys
 from antlr4 import IllegalStateException
 from antlr4 import InputStream
 
@@ -68,6 +69,12 @@ class AutomatonHelper:
         return result.states_list
 
     def createStateListFromLtl(self, ltl: str) -> typing.List[State]:
+        # if getattr(sys, 'frozen', False):
+        #     bundle_dir = sys._MEIPASS
+        # else:
+        #     # we are running in a normal Python environment
+        #     bundle_dir = os.path.dirname(os.path.abspath(__file__))
+        # ltl2ba_path = os.path.join(bundle_dir, "ltl2ba", "ltl2ba")
         ltl2ba_path = os.path.join("ltl2ba", "ltl2ba")
         if os.name == 'nt':  # is windows
             ltl2ba_path += '.exe'
