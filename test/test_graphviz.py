@@ -43,41 +43,36 @@ def execDot(dotFile, pdfFile):
 
 def check_antiDima():
     expected = """digraph AChart {
-rankdir = LR;
-s0 [label="state0"]
-s4 -> s0;
-s13 -> s0;
-s0 -> s3;
-s0 -> s5;
-s4 [shape="none", label=<<table><tr><td>Event</td><td>number</td></tr><tr><td colspan="2"></td></tr><tr><td colspan="2">Actions:</td></tr><tr><td>1.</td><td>SetID</td></tr></table>>]
-s13 [shape="none", label=<<table><tr><td>Event</td><td>quote</td></tr><tr><td colspan="2">We see quotation symbol</td></tr><tr><td colspan="2">Actions:</td></tr><tr><td>1.</td><td>SetName</td></tr></table>>]
-s3 [shape="none", label=<<table><tr><td>Event</td><td>id</td></tr><tr><td colspan="2">We see the word "id"</td></tr></table>>]
-s5 [shape="none", label=<<table><tr><td>Event</td><td>name</td></tr><tr><td colspan="2">We see the word "name"</td></tr></table>>]
-s1 [label="ID"]
-s3 -> s1;
-s1 -> s4;
-s2 [label="SName"]
-s5 -> s2;
-s2 -> s8;
-s8 [shape="none", label=<<table><tr><td>Event</td><td>quote</td></tr><tr><td colspan="2">We see quotation symbol</td></tr></table>>]
-s7 [label="SText"]
-s8 -> s7;
-s12 -> s7;
-s7 -> s12;
-s7 -> s13;
-s12 [shape="none", label=<<table><tr><td>Event</td><td>*</td></tr><tr><td colspan="2">No event</td></tr><tr><td colspan="2">Actions:</td></tr><tr><td>1.</td><td>AddToken</td></tr></table>>]
+\trankdir = LR;
+\ts0 [label="state0"]
+\ts4 -> s0;
+\ts13 -> s0;
+\ts0 -> s3;
+\ts0 -> s5;
+\ts4 [shape="none", label=<<table><tr><td>Event</td><td>number</td></tr><tr><td colspan="2"></td></tr><tr><td colspan="2">Actions:</td></tr><tr><td>1.</td><td>SetID</td></tr></table>>]
+\ts13 [shape="none", label=<<table><tr><td>Event</td><td>quote</td></tr><tr><td colspan="2">We see quotation symbol</td></tr><tr><td colspan="2">Actions:</td></tr><tr><td>1.</td><td>SetName</td></tr></table>>]
+\ts3 [shape="none", label=<<table><tr><td>Event</td><td>id</td></tr><tr><td colspan="2">We see the word "id"</td></tr></table>>]
+\ts5 [shape="none", label=<<table><tr><td>Event</td><td>name</td></tr><tr><td colspan="2">We see the word "name"</td></tr></table>>]
+\ts1 [label="ID"]
+\ts3 -> s1;
+\ts1 -> s4;
+\ts2 [label="SName"]
+\ts5 -> s2;
+\ts2 -> s8;
+\ts8 [shape="none", label=<<table><tr><td>Event</td><td>quote</td></tr><tr><td colspan="2">We see quotation symbol</td></tr></table>>]
+\ts7 [label="SText"]
+\ts8 -> s7;
+\ts12 -> s7;
+\ts7 -> s12;
+\ts7 -> s13;
+\ts12 [shape="none", label=<<table><tr><td>Event</td><td>*</td></tr><tr><td colspan="2">No event</td></tr><tr><td colspan="2">Actions:</td></tr><tr><td>1.</td><td>AddToken</td></tr></table>>]
 }
 """
 
     with open('./temp/diagram/AChart.xstd.dot') as f:
         lines = f.readlines()
-    expected = expected.split(os.linesep)
-    expected = [e.strip() for e in expected]
-    lines = [l.strip() for l in lines]
-    for i in range(min(len(lines), len(expected))):
-        assert lines[i] == expected[i]
 
-    assert len(lines) == len(expected)
+    assert ''.join(lines) == expected
 
 
 def test_generateDiagrams(env: Env):

@@ -35,12 +35,12 @@ class DiagramHelper:
                 if widget['type'] == L.L_WIDGET_STATE:
                     print("\t" + L.PREFIX + widget['id'] + " [label=\"" + widget.attributes.name.cdata + "\"]",
                           file=writer)
-                    if hasattr(widget.attributes, 'incoming'):
+                    if hasattr(widget.attributes, 'incoming') and widget.attributes.incoming is not None:
                         for incoming in widget.attributes.incoming:
                             print("\t" + L.PREFIX + incoming['id'] + " -> " + L.PREFIX + widget['id'] + ";",
                                   file=writer)
 
-                    if hasattr(widget.attributes, 'outgoing'):
+                    if hasattr(widget.attributes, 'outgoing') and widget.attributes.outgoing is not None:
                         for outgoing in widget.attributes.outgoing:
                             print("\t" + L.PREFIX + widget['id'] + " -> " + L.PREFIX + outgoing['id'] + ";",
                                   file=writer)
@@ -64,6 +64,9 @@ class DiagramHelper:
         if hasattr(attr, 'action'):
             sb.append("<tr><td colspan=\"2\">Actions:</td></tr>")
             actions = attr.action
+            # ETO GENIAL'NO
+            if not isinstance(actions, list):
+                actions = [actions]
             for i in range(len(actions)):
                 action = actions[i]
                 sb.append("<tr><td>")
