@@ -27,4 +27,4 @@ Test
 Run tests from **root** directory.
 `python -m pytest`
 or
-`python -m pytest <path_to_test>``
+`python -m pytest <path_to_test>`

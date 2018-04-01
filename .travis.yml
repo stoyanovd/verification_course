@@ -12,7 +12,7 @@ deploy:
   provider: releases
   api_key:
     secure: dL5Xj02sKGg84noZ4TigJQKn4Oh1tuV/o2ujh/6EwEoPcPYRpIiUT10UuuVLFV6NCGY+In4OqVaiwBC/HHb9KGYynazBXpxMJG3K4UshvzEw10WPXdj82XlD9ryEezuNE8ZmrW44scB0tdLL2LETivpySrk2ulQiwNjgrO2Lk1btPc1sJrsuONh5HmI5wyfYC7Bxv3mDiJXM59evO3SkbrSjXhLEMNil8w/ppt8RzVUMZ57BAJtW3Y+/2R944gZoVmXJlntCfxue82f7otSSQe0zXrO6UL5g/L46hOgt4Oz3s3914m6xTw8QR5m/B4jEwj3sGiL1LSWniAc77HXiBA3q7usF0b3J6hucTJrR9cXbc2OYRzFZLbo+JwZ+at2WoamqR5WwoVRF/QZMQ2dLpRwDU15Mp/tB3M3c54LNplOnnVbz1qCyRg8qwQyb03nGWp53Xnp89e6zfqIsSP77sKb25Nz5V3gl/LoFUpoOrO7Qgcgr6fEvTKZrx9rPT50e1lsM+71b40k9hhFQTmuS7CSo+UET/WcbQVq8Cey4en+mVQBrjqBJdk1a9ULYf28RB6c+0h5eIzBy0V5Vame2rM6e73ydgv3b0zK8bTdX+2ZJJBcS6zM9a/zgIgOzNHnl7DOhNVSzqLp2irenarR67sQpPrLmJlrePyk+yjuXsHo=
-  file: dist/main-linux
+  file: dist/verifier*
   on:
     branch: master
 #    repo: stoyanovd/verification_course
