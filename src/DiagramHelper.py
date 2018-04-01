@@ -35,12 +35,12 @@ class DiagramHelper:
                 if widget['type'] == L.L_WIDGET_STATE:
                     print("\t" + L.PREFIX + widget['id'] + " [label=\"" + widget.attributes.name.cdata + "\"]",
                           file=writer)
-                    if hasattr(widget.attributes, 'incoming') and widget.attributes.incoming is not None:
+                    if hasattr(widget.attributes, 'incoming'):
                         for incoming in widget.attributes.incoming:
                             print("\t" + L.PREFIX + incoming['id'] + " -> " + L.PREFIX + widget['id'] + ";",
                                   file=writer)
 
-                    if hasattr(widget.attributes, 'outgoing') and widget.attributes.outgoing is not None:
+                    if hasattr(widget.attributes, 'outgoing'):
                         for outgoing in widget.attributes.outgoing:
                             print("\t" + L.PREFIX + widget['id'] + " -> " + L.PREFIX + outgoing['id'] + ";",
                                   file=writer)
