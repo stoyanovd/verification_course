@@ -11,7 +11,7 @@ It is `verifier` and `verifier.exe` for Linux and Windows respectively.
 They should be running from **root** directory of the cloned project (`ltl2ba/ltl2ba` is used inside)
 
 For example:
-`./dist/verifier -m ./data/AChart.xstd -l "false"`
+`./dist/verifier -m ./data/AChart.xstd -l "false"`  
 `./dist/verifier -m ./data/AChart.xstd -f ./data/AChart.ltl.correct`
 
 
