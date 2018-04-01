@@ -85,13 +85,10 @@ class AutomatonHelper:
 
     def map_(self, input_: Automaton, mapper: types.FunctionType) -> Automaton:
         output_ = Automaton()
-        for k, v in input_.automaton.items():
-            nodeId = k
-            successors = v
-            for s_k, s_v in successors.items():
-                a = s_k
+        for nodeId, successors in input_.automaton.items():
+            for a, v in successors.items():
                 b = mapper(a)
-                for nextId in s_v:
+                for nextId in v:
                     output_.addTransition(nodeId, nextId, b)
 
         for nodeId in input_.acceptingSet:
@@ -213,12 +210,8 @@ class AutomatonHelper:
         c = Automaton()
         tr = dict()
         # Build all transitions
-        for a_k, a_v in a.automaton.items():
-            i = a_k
-            iState = a_v
-            for b_k, b_v in b.automaton.items():
-                j = b_k
-                jState = b_v
+        for i, iState in a.automaton.items():
+            for j, jState in b.automaton.items():
                 for iSymbol in iState.keys():
                     for jSymbol in jState.keys():
                         t = intersector.intersect(iSymbol, jSymbol)
