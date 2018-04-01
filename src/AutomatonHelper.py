@@ -131,7 +131,6 @@ class AutomatonHelper:
                     continue
 
                 for outgoing in widget.attributes.outgoing:
-                    print(type(outgoing['id']), outgoing)
                     next_ = widgetMap.get(outgoing['id'])
                     if next_['type'] == L.L_WIDGET_TRANSITION:
                         # event
