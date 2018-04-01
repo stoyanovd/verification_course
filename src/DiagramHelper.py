@@ -13,8 +13,8 @@ def prepareDiagram(diagram):
     make_list_from_attr(diagram, 'widget')
 
     for w in diagram.widget:
-        for s in ['action', 'event', 'incoming', 'outgoing']:
-            make_list_from_attr(w, s)
+        for s in ['action', 'incoming', 'outgoing']:
+            make_list_from_attr(w.attributes, s)
     return diagram
 
 
@@ -64,9 +64,9 @@ class DiagramHelper:
         if hasattr(attr, 'action'):
             sb.append("<tr><td colspan=\"2\">Actions:</td></tr>")
             actions = attr.action
-            # ETO GENIAL'NO
-            if not isinstance(actions, list):
-                actions = [actions]
+            # # ETO GENIAL'NO
+            # if not isinstance(actions, list):
+            #     actions = [actions]
             for i in range(len(actions)):
                 action = actions[i]
                 sb.append("<tr><td>")
