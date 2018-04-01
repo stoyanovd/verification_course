@@ -1,6 +1,8 @@
 Verification course
 ===================
 
+[![Build Status](https://travis-ci.org/stoyanovd/verification_course.svg?branch=master)](https://travis-ci.org/stoyanovd/verification_course)
+
 ```
 pip install -r requirements-shortenings.txt && pip freeze >> requirements-py3.txt
 ```
