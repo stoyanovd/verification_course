@@ -64,9 +64,6 @@ class DiagramHelper:
         if hasattr(attr, 'action'):
             sb.append("<tr><td colspan=\"2\">Actions:</td></tr>")
             actions = attr.action
-            # # ETO GENIAL'NO
-            # if not isinstance(actions, list):
-            #     actions = [actions]
             for i in range(len(actions)):
                 action = actions[i]
                 sb.append("<tr><td>")
